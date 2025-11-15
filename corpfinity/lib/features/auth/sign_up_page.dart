@@ -437,7 +437,7 @@ class _Indicator extends StatelessWidget {
 
 class _PasswordField extends StatefulWidget {
   final TextEditingController controller;
-  const _PasswordField({super.key, required this.controller});
+  const _PasswordField({required this.controller});
 
   @override
   State<_PasswordField> createState() => _PasswordFieldState();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SocialButton extends StatelessWidget {
   final String text;
@@ -81,21 +82,16 @@ class SocialButton extends StatelessWidget {
   Widget _getIcon() {
     switch (provider) {
       case SocialProvider.google:
-        return Container(
+        return SvgPicture.asset(
+          'assets/logos/google.svg',
           width: 20,
           height: 20,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage('https://developers.google.com/identity/images/g-logo.png'),
-              fit: BoxFit.contain,
-            ),
-          ),
         );
       case SocialProvider.facebook:
-        return const Icon(
-          Icons.facebook,
-          color: Color(0xFF1877F2),
-          size: 20,
+        return SvgPicture.asset(
+          'assets/logos/facebook.svg',
+          width: 20,
+          height: 20,
         );
       case SocialProvider.apple:
         return const Icon(

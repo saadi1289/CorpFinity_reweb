@@ -334,7 +334,7 @@ class _SignInPageState extends State<SignInPage> {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      builder: (_) {
+      builder: (sheetContext) {
         final c = TextEditingController();
         return Padding(
           padding: const EdgeInsets.all(24),
@@ -369,10 +369,11 @@ class _SignInPageState extends State<SignInPage> {
                 text: 'Send Reset Link',
                 onPressed: () async {
                   final result = await AuthService().resetPassword(c.text);
-                  Navigator.pop(context);
-                  
+                  if (!sheetContext.mounted) return;
+                  final messenger = ScaffoldMessenger.of(sheetContext);
+                  Navigator.pop(sheetContext);
                   if (result.success) {
-                    ScaffoldMessenger.of(context).showSnackBar(
+                    messenger.showSnackBar(
                       const SnackBar(
                         content: Text('Reset link sent to your email! 📧'),
                         backgroundColor: Color(0xFF5FCCC4),
@@ -380,7 +381,7 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                     );
                   } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
+                    messenger.showSnackBar(
                       SnackBar(
                         content: Text(result.error ?? 'Failed to send reset link'),
                         backgroundColor: Colors.red,

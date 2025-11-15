@@ -473,7 +473,7 @@ class _ChallengeCreatorPageState extends State<ChallengeCreatorPage> {
           const SizedBox(height: 32),
 
           // Energy Level Options
-          ...energyLevels.map((level) => _buildEnergyOption(level)).toList(),
+          ...energyLevels.map((level) => _buildEnergyOption(level)),
 
           const SizedBox(height: 32),
 
@@ -504,7 +504,7 @@ class _ChallengeCreatorPageState extends State<ChallengeCreatorPage> {
         child: Container(
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: isSelected ? const Color(0xFF5FCCC4).withOpacity(0.1) : Colors.white,
+            color: isSelected ? const Color(0xFF5FCCC4).withValues(alpha: 0.1) : Colors.white,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
               color: isSelected ? const Color(0xFF5FCCC4) : Colors.grey[300]!,
@@ -569,7 +569,7 @@ class _ChallengeCreatorPageState extends State<ChallengeCreatorPage> {
                                   vertical: 4,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.7),
+                                  color: Colors.white.withValues(alpha: 0.7),
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Text(
@@ -669,7 +669,7 @@ class _ChallengeCreatorPageState extends State<ChallengeCreatorPage> {
           const SizedBox(height: 32),
 
           // Time Options
-          ...timeOptions.map((option) => _buildTimeOption(option)).toList(),
+          ...timeOptions.map((option) => _buildTimeOption(option)),
 
           const SizedBox(height: 32),
 
@@ -700,7 +700,7 @@ class _ChallengeCreatorPageState extends State<ChallengeCreatorPage> {
         child: Container(
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: isSelected ? const Color(0xFF5FCCC4).withOpacity(0.1) : Colors.white,
+            color: isSelected ? const Color(0xFF5FCCC4).withValues(alpha: 0.1) : Colors.white,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
               color: isSelected ? const Color(0xFF5FCCC4) : Colors.grey[300]!,
@@ -789,7 +789,7 @@ class _ChallengeCreatorPageState extends State<ChallengeCreatorPage> {
                                   vertical: 4,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.7),
+                                  color: Colors.white.withValues(alpha: 0.7),
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Text(
@@ -864,7 +864,7 @@ class _ChallengeCreatorPageState extends State<ChallengeCreatorPage> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: const Color(0xFF5FCCC4).withOpacity(0.1),
+                  color: const Color(0xFF5FCCC4).withValues(alpha: 0.1),
                   blurRadius: 20,
                   offset: const Offset(0, 8),
                 ),
@@ -938,7 +938,7 @@ class _ChallengeCreatorPageState extends State<ChallengeCreatorPage> {
                           height: 24,
                           margin: const EdgeInsets.only(right: 12),
                           decoration: BoxDecoration(
-                            color: const Color(0xFF5FCCC4).withOpacity(0.1),
+                            color: const Color(0xFF5FCCC4).withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(
                               color: const Color(0xFF5FCCC4),
@@ -969,7 +969,7 @@ class _ChallengeCreatorPageState extends State<ChallengeCreatorPage> {
                       ],
                     ),
                   );
-                }).toList(),
+                }),
                 
                 const SizedBox(height: 20),
                 
@@ -994,10 +994,10 @@ class _ChallengeCreatorPageState extends State<ChallengeCreatorPage> {
                               vertical: 6,
                             ),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF5FCCC4).withOpacity(0.1),
+                              color: const Color(0xFF5FCCC4).withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(16),
                               border: Border.all(
-                                color: const Color(0xFF5FCCC4).withOpacity(0.3),
+                                color: const Color(0xFF5FCCC4).withValues(alpha: 0.3),
                               ),
                             ),
                             child: Text(

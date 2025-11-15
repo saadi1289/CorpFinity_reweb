@@ -1,16 +1,28 @@
 import 'package:flutter/material.dart';
 import 'main_app.dart';
 import 'features/auth/auth_service.dart';
-import 'features/auth/auth_entry_page.dart';
+import 'features/auth/sign_in_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool _ready = false;
+
+  @override
+  void initState() {
+    super.initState();
+    AuthService().loadSession().then((_) => setState(() => _ready = true));
+  }
+
   @override
   Widget build(BuildContext context) {
     const accent = Color(0xFF5FCCC4);
@@ -42,10 +54,12 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: AuthWrapper(
-        child: const MainApp(),
-        authScreen: const AuthEntryPage(),
-      ),
+      home: _ready
+          ? AuthWrapper(
+              authScreen: const SignInPage(),
+              child: const MainApp(),
+            )
+          : const Scaffold(body: Center(child: CircularProgressIndicator())),
     );
   }
 }
