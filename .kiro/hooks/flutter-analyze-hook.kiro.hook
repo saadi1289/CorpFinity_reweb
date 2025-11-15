@@ -1,0 +1,19 @@
+{
+  "enabled": true,
+  "name": "Flutter Analyze on File Changes",
+  "description": "Automatically runs flutter analyze when new files are added or created in the Flutter project to detect and fix any errors",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "corpfinity/lib/**/*.dart",
+      "corpfinity/test/**/*.dart",
+      "corpfinity/pubspec.yaml",
+      "corpfinity/analysis_options.yaml"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A new file has been added or created in the Flutter project. Please run 'flutter analyze' to check for any errors or issues. If errors are found, please fix them automatically. If no errors are found, acknowledge that the analysis passed successfully."
+  }
+}
